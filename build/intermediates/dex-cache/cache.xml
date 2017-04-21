@@ -2,151 +2,46 @@
 <items version="2" >
 
     <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/libs/internal_impl-24.2.0.jar"
+        jar="/Users/seancanham/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.2.0/a09926806199499a20b2f5168779499abfa33342/converter-gson-2.2.0.jar"
         jumboMode="false"
         revision="24.0.2"
-        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0_341d7645930a3c5becdb5589e2c7cc3cfb5943f6.jar" />
+        sha1="a09926806199499a20b2f5168779499abfa33342">
+        <dex dex="/Users/seancanham/faceVerify/app/build/intermediates/pre-dexed/debug/converter-gson-2.2.0_f50acd49821ef68fa4c00d2868b2462e9d007d3f.jar" />
     </item>
     <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/design/24.2.0/jars/classes.jar"
+        jar="/Users/seancanham/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.11.0/840897fcd7223a8143f1d9b6f69714e7be34fd50/okio-1.11.0.jar"
         jumboMode="false"
         revision="24.0.2"
-        sha1="23eb0d2998a782213b56168cbf23a0688b9111d9">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.0_6746de21870e6f9aca7913a7117f80a4338ae4ac.jar" />
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="/Users/seancanham/faceVerify/app/build/intermediates/pre-dexed/debug/okio-1.11.0_7517f87690e6d4694502537cc0cb9a840a5048fc.jar" />
     </item>
     <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.0/jars/classes.jar"
+        jar="/Users/seancanham/faceVerify/app/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.0-alpha9/jars/classes.jar"
         jumboMode="false"
         revision="24.0.2"
-        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.0_062f4b78eae6c7c73d1373d470c73427df5e0cb6.jar" />
+        sha1="f2b64f6a762f61a2379d6a79af03e2ee56eefe0b">
+        <dex dex="/Users/seancanham/faceVerify/app/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.0.0-alpha9_17945f6795e656de6fa5735ace9778a3b645d62f.jar" />
     </item>
     <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/classes.jar"
+        jar="/Users/seancanham/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-alpha9/constraint-layout-solver-1.0.0-alpha9.jar"
         jumboMode="false"
         revision="24.0.2"
-        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.0_3852b03478fb12f477d05cda2526670c9203ee5c.jar" />
+        sha1="6a908fd0803cc5f65b007101002aec06dc7544da">
+        <dex dex="/Users/seancanham/faceVerify/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-alpha9_6db501588256c9d7248b9f89a1f828343c06ef13.jar" />
     </item>
     <item
-        jar="/Users/seancanham/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.0/support-annotations-24.2.0.jar"
+        jar="/Users/seancanham/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.2.0/41e67dba73c3347e4503761642c39d0e06ca1f2/retrofit-2.2.0.jar"
         jumboMode="false"
         revision="24.0.2"
-        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.0_0358d4e8dcb357e77a7ec58724ed5f6b1a4d4350.jar" />
+        sha1="041e67dba73c3347e4503761642c39d0e06ca1f2">
+        <dex dex="/Users/seancanham/faceVerify/app/build/intermediates/pre-dexed/debug/retrofit-2.2.0_e1790d2cc5f04ec8518d7f9cab7b77f7d9fce255.jar" />
     </item>
     <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/9.4.0/jars/classes.jar"
+        jar="/Users/seancanham/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
         jumboMode="false"
         revision="24.0.2"
-        sha1="670df81539ab71918d49b186598b7eff08ef6563">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-vision-9.4.0_d71f283cdbfeef121d8f33324066a300db286d2e.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.0_a0dcc19dc7be9dca40d8358b6fc031f0ca5c10d1.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/libs/internal_impl-24.2.0.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0_ac30ce0121d963e16b0544ed8a77167ffd5c963e.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0_848831d6e988c2e90c654393ebc28e9e3a1fbba9.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.0_a0f69fa2d83c6cb0689784ac250bb2e4c276a2fd.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.0_83e2066f21279462b6e8c4f9cd2daab5b6a58a68.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.0/jars/libs/internal_impl-24.2.0.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0_4f21c66752255af855f813bc619da23a760e281f.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="8a36d229011e75f0caef408e1adf0d3fd4d94e02">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.4.0_3dcf8f80a10a86172b1cdb491fcdc613e4744c10.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.0_dbd43b273426980371889dbb31d70d2ea80ad689.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.0_ed4aaa32d249c3891ac04207ca892c34aa450a96.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.0_788f72d51d3aa75ec1faea7d7efbf4fda220d981.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.0/jars/libs/internal_impl-24.2.0.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.0_1a28938b17f00a5c25020f16a2b07dc8c5a74737.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="3dee4ce5844d39d843d503fb8fe04e51e5bfffac">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.4.0_fbd39100b187009ebe2762b4f2930f1f511d6641.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.4.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="618485fef3ebe12127f7622abbc9b5b39057b5c2">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.4.0_1ccf64f65f8cae6d6549ef75ccb6e34a24e09d52.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.0_b0c55d7eb2bfe74b0a3225e14d8cfa5374934de6.jar" />
-    </item>
-    <item
-        jar="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="24.0.2"
-        sha1="c755536e5a100d9c76c8ea0b72f76c018f7a9de2">
-        <dex dex="/Users/seancanham/android-vision/visionSamples/FaceTracker/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.0_eddded3ddf3f5de7412247493a48df6b29442f5b.jar" />
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/seancanham/faceVerify/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_699c012f729f371b7077e0a0bc1127370f73a5f6.jar" />
     </item>
 
 </items>

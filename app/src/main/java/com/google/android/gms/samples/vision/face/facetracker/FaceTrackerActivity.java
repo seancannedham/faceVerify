@@ -24,15 +24,21 @@ import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
@@ -40,8 +46,24 @@ import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSourcePreview;
 import com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.kairos.Kairos;
+import com.kairos.KairosListener;
+import com.google.android.gms.samples.vision.face.facetracker.requestresponse.EnrollResponse;
+import com.google.android.gms.samples.vision.face.facetracker.requestresponse.VerifyResponse;
+
+
+import org.json.JSONException;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Activity for the face tracker app.  This app detects faces with the rear facing camera, and draws
@@ -50,7 +72,13 @@ import java.io.IOException;
 public final class FaceTrackerActivity extends AppCompatActivity {
     private static final String TAG = "FaceTracker";
 
+    private int CAPTURE_STATE = 1;
+    private int CAPTURE_STATE_REFERENCE = 1;
+    private int CAPTURE_STATE_COMPARE = 2;
     private CameraSource mCameraSource = null;
+
+    String referenceSubjectId= "";
+    private Kairos myKairos;
 
     private CameraSourcePreview mPreview;
     private GraphicOverlay mGraphicOverlay;
@@ -77,11 +105,20 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
         int rc = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        initKairos();
         if (rc == PackageManager.PERMISSION_GRANTED) {
             createCameraSource();
         } else {
             requestCameraPermission();
         }
+    }
+
+    private void initKairos() {
+        myKairos = new Kairos();
+        // set authentication
+        String app_id = "cd24e510";
+        String api_key = "e9ee31cc7b788196843182b41d794eca";
+        myKairos.setAuthentication(this, app_id, api_key);
     }
 
     /**
@@ -261,15 +298,162 @@ public final class FaceTrackerActivity extends AppCompatActivity {
         }
     }
 
-    public void capturePhoto(View view){
+    private String getDynamicPath(){
+        return new SimpleDateFormat("ddMMyyyyHHmm").format(new Date());
+    }
+
+    //Take a photo from the Camera Source on button click
+    public void captureDefaultPhoto(View view){
+        CAPTURE_STATE = CAPTURE_STATE_REFERENCE;
         mCameraSource.takePicture(null, new CameraSource.PictureCallback() {
             @Override
             public void onPictureTaken(byte[] bytes) {
                 Bitmap btmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 Log.d("BITMAP", btmp.getWidth() + "x" + btmp.getHeight());
+                uploadToFireBase(bytes);
             }
         });
     }
+
+    public void captureComparisonPhoto(View v){
+        CAPTURE_STATE = CAPTURE_STATE_COMPARE;
+        mCameraSource.takePicture(null, new CameraSource.PictureCallback() {
+            @Override
+            public void onPictureTaken(byte[] bytes) {
+                Bitmap btmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                Log.d("BITMAP", btmp.getWidth() + "x" + btmp.getHeight());
+                uploadToFireBase(bytes);
+            }
+        });
+    }
+
+    //Upload the captured image to FireBase
+    private void uploadToFireBase(byte[] data){
+        // Create a storage reference from our app
+
+
+        final String fileName = getDynamicPath();
+
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference imageRef = storageRef.child("images/" + fileName + ".png");
+        UploadTask uploadTask = imageRef.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+                Toast.makeText(FaceTrackerActivity.this, "Failed to process, reason : upload to firebase failed", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                Log.d("ENROLL", "successful");
+                handleSuccess(taskSnapshot, fileName); //
+            }
+        });
+    }
+
+    private void handleSuccess(UploadTask.TaskSnapshot taskSnapshot, String fileName) {
+        Uri url = taskSnapshot.getDownloadUrl();
+
+
+        if (url == null || TextUtils.isEmpty(url.getPath())){
+            Toast.makeText(FaceTrackerActivity.this, "Failed to process, reason : upload to firebase failed", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (CAPTURE_STATE == CAPTURE_STATE_REFERENCE){
+            try {
+                Log.d("ENROLL", "enrolling");
+                referenceSubjectId = fileName;
+                myKairos.enroll(url.toString(),
+                        referenceSubjectId,
+                        referenceSubjectId,
+                        null,
+                        null,
+                        null,
+                        enrollListener);
+            } catch (UnsupportedEncodingException | JSONException e) {
+                e.printStackTrace();
+            }
+        }else {
+            if (TextUtils.isEmpty(referenceSubjectId)){
+                Toast.makeText(FaceTrackerActivity.this, "You need to first add a default image only then you can compare a new image.", Toast.LENGTH_SHORT).show();
+                Log.e(TAG ,  "You need to first add a default image only then you can compare a new image.");
+            }
+
+            try {
+                myKairos.recognize(
+                        url.toString(),
+                        referenceSubjectId,
+                        null,
+                        null,
+                        null,
+                        null,
+                        verifyListener);
+            } catch (UnsupportedEncodingException | JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    KairosListener enrollListener = new KairosListener() {
+
+        @Override
+        public void onSuccess(String response) {
+            // your code here!
+            Log.d("Enroll response", response);
+            Type type = new TypeToken<EnrollResponse>(){}.getType();
+            EnrollResponse responseMapper = new Gson().fromJson(response, type);
+
+            if (responseMapper != null && responseMapper.getImages() != null &&
+                    responseMapper.getImages().get(0) != null && responseMapper.getImages().get(0).getTransaction().getStatus() != null){
+
+                Toast.makeText(FaceTrackerActivity.this, "Image upload status : " + responseMapper.getImages().get(0).getTransaction().getStatus(), Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(FaceTrackerActivity.this, "Image upload status : failed", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+        @Override
+        public void onFail(String response) {
+            // your code here!
+            Log.d("Enroll response", response);
+
+        }
+    };
+
+    KairosListener verifyListener = new KairosListener() {
+
+        @Override
+        public void onSuccess(String response) {
+            // your code here!
+            Log.d("Verify response : ", response);
+
+            Type type = new TypeToken<VerifyResponse>(){}.getType();
+            VerifyResponse responseMapper = new Gson().fromJson(response, type);
+
+            if (responseMapper != null && responseMapper.getImages() != null &&
+                    responseMapper.getImages().get(0) != null &&
+                    responseMapper.getImages().get(0).getTransaction().getStatus() != null &&
+                    responseMapper.getImages().get(0).getTransaction().getStatus().equalsIgnoreCase("success")){
+
+                //Toast.makeText(MainActivity.this, "Image match status : " + responseMapper.getImages().get(0).getTransaction().getStatus(), Toast.LENGTH_SHORT).show();
+                Log.d("RESULT", "SUCCESS");
+            }else {
+                Toast.makeText(FaceTrackerActivity.this, "Image match status : failed", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+        @Override
+        public void onFail(String response) {
+            // your code here!
+            Log.d("Verify response : ", response);
+
+        }
+    };
 
     //==============================================================================================
     // Graphic Face Tracker

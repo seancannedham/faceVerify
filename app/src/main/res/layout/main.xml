@@ -9,10 +9,15 @@
     android:keepScreenOn="true">
 
   <Button
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="TAKE PHOTO"
-      android:onClick="capturePhoto"/>
+      android:text="TAKE DEFAULT PHOTO"
+      android:onClick="captureDefaultPhoto"/>
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="TAKE COMPARE PHOTO"
+      android:onClick="captureComparisonPhoto"/>
 
   <com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSourcePreview
       android:id="@+id/preview"

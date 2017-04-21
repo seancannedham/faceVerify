@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "365170032182",
+    "firebase_url": "https://vivid-torch-7155.firebaseio.com",
+    "project_id": "vivid-torch-7155",
+    "storage_bucket": "vivid-torch-7155.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365170032182:android:1d702ed6e1a4eb43",
+        "android_client_info": {
+          "package_name": "com.google.android.gms.samples.vision.face.facetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "365170032182-ml4qifcp1iq5cqdqs1809bt3t95be1k5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.android.gms.samples.vision.face.facetracker",
+            "certificate_hash": "f6597882239a060eeb7dfe77898314e45825a3c1"
+          }
+        },
+        {
+          "client_id": "365170032182-604kihf3m2385co9eejm49f4mg7qgbvv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD16PX-DF3aKvdYeUo3Qrq2iRyx0UU7EM"
+        },
+        {
+          "current_key": "AIzaSyDr5p16GRpTuKk6TodPw4Y7yph4ea4Qtog"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "365170032182-604kihf3m2385co9eejm49f4mg7qgbvv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
